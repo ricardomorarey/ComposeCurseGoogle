@@ -30,7 +30,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeCurseGoogleTheme() {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    MessageCard(Message("Android", "Jetpack Compose"))
+                    Conversation(listOf(Message("Android", "Hola"),
+                        Message("Gemma", "Hola Android"),
+                        Message("Android", "Como estas hoy?"),
+                        Message("Gemma", "Pues un poco mejor,qwriu32hri32hroi2h3roiu2h4troih42oith4oi2htroi42htroi42htoi24htoi42htoih4 pero no mucjo la verda...."),
+                        Message("Android", "VAya faena....")))
                 }
             }
 
