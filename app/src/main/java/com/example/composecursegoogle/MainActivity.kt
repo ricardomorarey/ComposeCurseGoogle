@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -65,10 +66,13 @@ fun MessageCard(msg: Message) {
         )
 
         Spacer(modifier = Modifier.width(8.dp))
+
         // We keep track if the message is expanded or not in this
         // variable
         var isExpanded by remember { mutableStateOf(false) }
-
+        val surfaceColor by animateColorAsState(
+            if (isExpanded) MaterialTheme.colors.primary else MaterialTheme.colors.surface,
+        )
         Column(modifier = Modifier.clickable { isExpanded = !isExpanded })  {
             Text(
                 text = "Hello ${msg.author}",
